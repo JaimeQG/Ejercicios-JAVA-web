@@ -37,11 +37,10 @@ public class PerroController extends HttpServlet {
 
 			e.printStackTrace();
 
-		} finally {
-			lista.add(new Perro("buba", "boxer", 3));
-			lista.add(new Perro("Snoppy", "cruce", 3));
-			lista.add(new Perro("pulgas", "otra", 20));
-		}
+		} /*
+			 * finally { lista.add(new Perro("buba", "boxer", 3)); lista.add(new
+			 * Perro("Snoppy", "cruce", 3)); lista.add(new Perro("pulgas", "otra", 20)); }
+			 */
 
 		// enviarlos a la JSP
 		request.setAttribute("perros", lista);
@@ -61,10 +60,28 @@ public class PerroController extends HttpServlet {
 		// recibri datos del formulario, fijaros en el input el atributo 'name'
 		String parametroNombre = request.getParameter("nombre");
 		String raza = request.getParameter("raza");
+		int peso = Integer.parseInt(request.getParameter("peso"));
+		String vacuna = request.getParameter("vacunado");
+		String historia = request.getParameter("historia");
 
 		Perro p = new Perro();
 		p.setNombre(parametroNombre);
 		p.setRaza(raza);
+		p.setPeso(peso);
+		p.setVacunado((vacuna.equals(null)) ? false : true);
+		p.setHistoria(historia);
+
+		// guardarlo en la BBDD
+		try {
+			PerroDAOSqlite dao = PerroDAOSqlite.getInstance();
+			dao.crear(p);
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+			// request.setAttribute("mensaje", e.getMessage() );
+			request.setAttribute("mensaje", "*** ERROR: Ya existe el perro " + parametroNombre + " en la BBDD");
+		}
 
 		// enviarlos a la JSP
 		request.setAttribute("perro", p);

@@ -9,10 +9,18 @@
 <a href="perroController">Listado de Perros</a>
 
 <form method="post" action="perroController">
-	<p>Esto envia datos por POST al controlador</p>
-	<input type="text" name="nombre" placeholder="Nombre del perro">
-	<br>
-	<input type="text" name="raza" placeholder="Raza del perro">
-	<br>
-	<input type="submit" value="Enviar">
+ <p>Esto envia datos por POST al controlador</p>
+ <input type="text" name="nombre" placeholder="Nombre del perro" required>
+ <br>
+ <input type="text" name="raza" placeholder="Raza del perro" required>
+ <br>
+ <input type="text" name="peso" placeholder="Peso del perro" required>
+ <br>
+ Marca si esta Vacunado
+ <input type="checkbox" name="vacunado">
+ <br>
+ <textarea name="historia" cols="30" rows="5" placeholder="Cuentame la historia del perro"></textarea> 
+ <br>
+ <input type="submit" value="Enviar">
 </form>
+
