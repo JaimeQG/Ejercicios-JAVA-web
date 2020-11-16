@@ -13,9 +13,9 @@ import com.ipartek.formacion.modelo.PerroDAOSqlite;
 import com.ipartek.formacion.pojo.Perro;
 
 /**
- * @WebServlet("/perro") es la URL donde escucha este controlador
+ * @WebServlet("/perro-controller") es la URL donde escucha este controlador
  */
-@WebServlet("/perroController")
+@WebServlet("/perro-controller")
 public class PerroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +31,7 @@ public class PerroController extends HttpServlet {
 		// conseguir perros llamado al modelo
 		try {
 			PerroDAOSqlite dao = PerroDAOSqlite.getInstance();
+			// conseguir datos llamando al modelo ( bbdd )
 			lista = dao.listar();
 
 		} catch (Exception e) {
@@ -42,11 +43,19 @@ public class PerroController extends HttpServlet {
 			 * Perro("Snoppy", "cruce", 3)); lista.add(new Perro("pulgas", "otra", 20)); }
 			 */
 
-		// enviarlos a la JSP
+		// Los DATOS (atributos) a enviar a la vista
+		// request.setAttribute( String, Objeto)
+		// String se puede poner cualquier nombre, ppero ese mismo nombre lo usaremos en
+		// la JSP para acceder al Objeto
+		// Objeto se puede enviar lo que querais: String, boolean, Perro,
+		// ArrayList<Perro>, ...
 		request.setAttribute("perros", lista);
+		request.setAttribute("mensaje", "Recuperados " + lista.size() + " perros");
+		request.setAttribute("total", lista.size());
 
-		// ir a la JSP
-		request.getRequestDispatcher("perros.jsp").forward(request, response);
+		// Comando para ir a la VISTA, hacemos un "forward" y escribimos el nombre de la
+		// JSP
+		request.getRequestDispatcher("tabla-perros.jsp").forward(request, response);
 
 	}
 
@@ -57,18 +66,18 @@ public class PerroController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// recibri datos del formulario, fijaros en el input el atributo 'name'
+		// recibir datos del formulario, fijaros en el input el atributo 'name'
 		String parametroNombre = request.getParameter("nombre");
 		String raza = request.getParameter("raza");
-		int peso = Integer.parseInt(request.getParameter("peso"));
-		String vacuna = request.getParameter("vacunado");
+		float peso = Float.parseFloat(request.getParameter("peso"));
+		String vacunado = request.getParameter("vacunado");
 		String historia = request.getParameter("historia");
 
 		Perro p = new Perro();
 		p.setNombre(parametroNombre);
 		p.setRaza(raza);
 		p.setPeso(peso);
-		p.setVacunado((vacuna.equals(null)) ? false : true);
+		p.setVacunado((vacunado.equals(null)) ? false : true);
 		p.setHistoria(historia);
 
 		// guardarlo en la BBDD
