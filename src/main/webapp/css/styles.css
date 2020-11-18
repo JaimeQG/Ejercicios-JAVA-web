@@ -1,13 +1,32 @@
+/*
+*    1. reset o normalize ( se suele incluir en head con otro .css )
+*    2. Animaciones o @keyframes ( no vamos a verla en este curso )
+*    3. variables globales
+*    4. Etiquetas de HTML
+*    5. Layouts ( header, main, footer, nav, ... )
+*    6. Clases ( botones, hero .... )
+*    7. Selectores mas particulares ( para un id concreto, o pagina,....)
+*/
 
 :root {
 	--color-primary: #2196f3;
 	--color-accent: #ff9800;
 	--color-white: #FFF;
+	--color-background-start: #f7fbfe; /* rgba(235,240,245,1) */
+	--color-background-end: #fbfcff;   /* rgba(247,251,254,1) */
+	
 }
 
-html {
-  		font-family: Arial, Helvetica, sans-serif;
-	}
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: var(--color-background-start);
+    background: linear-gradient(0deg, rgba(235,240,245,1) 0%, rgba(247,251,254,1) 100%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1rem 0;
+    color: var(--color-primary);
+}
 
 nav {
 	background-color: var(--color-primary);
@@ -30,12 +49,64 @@ nav li {
 nav li a {
 	color: var(--color-white);
 	text-decoration: none;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
 }
 
 nav li a:hover {
 	background-color: var(--color-accent);	
 }
 
+form {
+	margin: 2rem auto 2rem auto;
+	width: 50%;
+	background-color: var(--color-white);
+	padding: 2rem;
+}
+
+label {
+	color: #333;
+}
+
+input, textarea {
+	/*color:  var(--color-primary);*/
+}
+
+input[type="checkbox"] {
+	height: 2rem;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	border-width: 0;
+}
+
+.form-group {
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.form-group label {
+	width: 25%
+}
+
+.form-group input {
+	width: 70%
+}
+
+/* fotawesome
+************************************************/
+.fa {
+	font-size: 1.5rem;
+	color: var(--color-primary);
+}
+.fa:hover {		
+	color: var(--color-accent);	
+}
+
+
+/* Layouts
+*************************************************/
 .container {
 	max-width: 1024px;
 	margin: auto;
@@ -49,8 +120,7 @@ main {
 footer {
 	background-color: var(--color-primary);
 	color: var(--color-white);
-	padding: 1rem;
-	margin-top: 1rem;
+	padding: 1rem;	
 }
 
 /*  tabla
@@ -88,6 +158,72 @@ tfoot td {
 	text-align: right;
 }
 
+.boton {
+	text-decoration: none;
+	
+	min-height: 40px;
+	
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	
+	
+	padding: .375rem .75rem;
+  	border-radius: .25rem;
+  	background-color: var(--color-primary);
+  	color: #fff;
+  	transition: background-color .15s ease;
+}
+.boton:hover, .boton:focus {
+  	background-color: #0069d9;
+}
+
+.boton:active {
+  	background-color: #0062cc;
+}
+
+div.contenedor {
+	margin-top: 1rem;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+/* Total de tabla de perros */
 #total {
 	text-align: left;
+}
+
+.w-6 {
+	width: 6% !important;
+}
+
+/* Hero
+***********************************************************/
+
+/* The hero image */
+.hero-image {
+  
+  background-image: url("../imagenes/back_dog.jpg");
+  
+  /*  
+      vh == deVice Height, en este caso usamos el 80% de altura del dispositivo, 
+      el % no suele funcionar bien en el navegador
+      */
+  height: 80vh;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-primary);
 }

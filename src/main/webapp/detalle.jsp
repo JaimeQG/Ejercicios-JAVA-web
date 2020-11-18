@@ -14,7 +14,9 @@ ${perro}
 ${perro.historia}
 
 <hr>
-<a href="perro-eliminar?id=${perro.id}">ELIMINAR PERRO, Cuidado no tiene vuelta atras!!!</a>
+<div class="contenedor">
+	<a class="boton" href="perro-eliminar?id=${perro.id}">Eliminar Perro</a>
+</div>
 
 <jsp:include page="includes/pie.jsp" />
 
