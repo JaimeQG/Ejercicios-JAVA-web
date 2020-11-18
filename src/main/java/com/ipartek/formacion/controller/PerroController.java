@@ -18,6 +18,7 @@ import com.ipartek.formacion.pojo.Perro;
 @WebServlet("/perro-controller")
 public class PerroController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private PerroDAOSqlite dao = PerroDAOSqlite.getInstance();
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -68,38 +69,44 @@ public class PerroController extends HttpServlet {
 
 		String mensaje = "";
 
-		// recibir datos del formulario, fijaros en el input el atributo 'name'
+		// recibri datos del formulario, fijaros en el input el atributo 'name'
+		int id = Integer.parseInt(request.getParameter("id"));
 		String nombre = request.getParameter("nombre");
 		String raza = request.getParameter("raza");
 		float peso = Float.parseFloat(request.getParameter("peso"));
-		String vacunado = request.getParameter("vacunado");
+		boolean vacunado = (request.getParameter("vacunado") == null) ? false : true;
 		String historia = request.getParameter("historia");
 
 		Perro p = new Perro();
+		p.setId(id);
 		p.setNombre(nombre);
 		p.setRaza(raza);
 		p.setPeso(peso);
-		p.setVacunado((vacunado == null) ? false : true);
+		p.setVacunado(vacunado);
 		p.setHistoria(historia);
 
-		// guardarlo en la BBDD
+		// guardarlo en la bbdd
 		try {
-			PerroDAOSqlite dao = PerroDAOSqlite.getInstance();
-			dao.crear(p);
-			mensaje = "Perro insertado con exito";
+
+			if (id == 0) {
+				dao.crear(p);
+				mensaje = "Perro insertado con exito";
+			} else {
+				dao.modificar(p);
+				mensaje = "Perro Modificado con exito";
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			// request.setAttribute("mensaje", e.getMessage() );
-			mensaje = "*** ERROR: Ya existe el perro " + nombre + " en la BBDD";
+			mensaje = "Lo sentimos pero " + p.getNombre() + " de perro ya existe";
+
 		} finally {
 
 			// enviarlos a la JSP
 			request.setAttribute("perro", p);
 			request.setAttribute("mensaje", mensaje);
-
 			// ir a la JSP
-			request.getRequestDispatcher("perro.jsp").forward(request, response);
+			request.getRequestDispatcher("formulario.jsp").forward(request, response);
 		}
 	}
 

@@ -23,13 +23,14 @@
 </head>
 <body>
 	<header>
+		
 		<nav>
 			<ul>
 				<li><a href="index.jsp">Inicio</a></li>
 				<li><a href="perro-controller">Ver Perros</a></li>
-				<li><a href="formulario.jsp">Crear Perro Nuevo</a></li>
+				<li><a href="perro-editar?id=0">Dar de Alta Perro nuevo</a></li>
 			</ul>
 		</nav>
 	</header>
 
-	<main class="container">	
+	<main class="container">

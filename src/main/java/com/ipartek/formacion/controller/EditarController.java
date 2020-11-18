@@ -12,17 +12,18 @@ import com.ipartek.formacion.modelo.PerroDAOSqlite;
 import com.ipartek.formacion.pojo.Perro;
 
 /**
- * Servlet implementation class PerroDetalleController
+ * Servlet implementation class EditarContreller
  */
-@WebServlet("/perro-detalle")
-public class PerroDetalleController extends HttpServlet {
+@WebServlet("/perro-editar")
+public class EditarController extends HttpServlet {
+
 	private static final long serialVersionUID = 1L;
 	private PerroDAOSqlite dao = PerroDAOSqlite.getInstance();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public PerroDetalleController() {
+	public EditarController() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,20 +34,21 @@ public class PerroDetalleController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// coger el VALUE del parametro que me envias desde la vista, el cual se llama
-		// "id"
-		// <a href="perro-detalle?id=${perro.id">
 
 		String parametroId = request.getParameter("id");
 		int id = Integer.parseInt(parametroId);
 
-		Perro perro = dao.recuperar(id);
+		Perro perro = null;
+
+		if (id == 0) {
+			perro = new Perro();
+		} else {
+			perro = dao.recuperar(id);
+		}
 
 		request.setAttribute("perro", perro);
+		request.getRequestDispatcher("formulario.jsp").forward(request, response);
 
-		// request.setAttribute("nombre", perro.getNombre());
-
-		request.getRequestDispatcher("detalle.jsp").forward(request, response);
 	}
 
 	/**

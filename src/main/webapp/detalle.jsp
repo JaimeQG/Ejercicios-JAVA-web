@@ -14,6 +14,7 @@ ${perro}
 ${perro.historia}
 
 <hr>
+
 <div class="contenedor">
 	<a class="boton" href="perro-eliminar?id=${perro.id}">Eliminar Perro</a>
 </div>

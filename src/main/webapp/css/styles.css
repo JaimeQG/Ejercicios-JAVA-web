@@ -158,6 +158,11 @@ tfoot td {
 	text-align: right;
 }
 
+.flex {
+	display: flex;
+	justify-content: space-around;
+}
+
 .boton {
 	text-decoration: none;
 	
@@ -183,7 +188,7 @@ tfoot td {
 }
 
 div.contenedor {
-	margin-top: 1rem;
+	margin: 1rem;
 	display: flex;
 	justify-content: space-evenly;
 }
