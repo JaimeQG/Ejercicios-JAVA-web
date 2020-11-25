@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Listado Productos Supermercado</title>
+</head>
+
+<body class="container-fluid">
+    <nav class="row navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Menú principal">
+        <a class="navbar-brand" href="#">Supermercado</a>
+        <div id="Logo"><img
+            src="imgs/NVIDIA Logo.jpg"
+            alt="Logo" height="80" width="80"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="indexsuper.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Backoffice</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="registroproducto.html">Registro Producto</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Listado de productos<span class="sr-only">(actual)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row alert alert-info alert-dismissible fade show" role="alert">
+        Bienvenido al mantenimiento de productos
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-sm">
+            <caption>Listado de productos</caption>
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre Producto</th>
+                    <th scope="col">Unidad medida</th>
+                    <th scope="col">% Descuento</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Leche Entera</td>
+                    <td>Litros</td>
+                    <td>7</td>
+                    <td>0.89</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Opciones">
+                            <a class="btn btn-primary btn-sm" href="cliente.html">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="cliente.html">Borrar</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Chocolate</td>
+                    <td>Unidad</td>
+                    <td>7</td>
+                    <td>2.89</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Opciones">
+                            <a class="btn btn-primary btn-sm" href="cliente.html">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="cliente.html">Borrar</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Naranjas</td>
+                    <td>Kgs</td>
+                    <td>3</td>
+                    <td>3.89</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Opciones">
+                            <a class="btn btn-primary btn-sm" href="cliente.html">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="cliente.html">Borrar</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Coca-Cola</td>
+                    <td>Litros</td>
+                    <td>7</td>
+                    <td>1.89</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Opciones">
+                            <a class="btn btn-primary btn-sm" href="cliente.html">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="cliente.html">Borrar</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <div class="row">
+            <section class="col">
+                <nav>
+                    <ul>
+                        <li><a href="#">Politica Privacidad</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Localización</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <section class="col">
+                <img class="logo" src="imgs/facebook.png" alt="facebook" />
+                <img class="logo" src="imgs/twitter.png" alt="twitter" />
+            </section>
+            <section class="col text-righ">
+                <span>&copy;2020</span>
+            </section>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('table').DataTable({
+                "language": {
+                    "url": "js/Spanish.json"
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+/* Nuestra hoja de estilos */
+
+
+* { 
+    margin: 0;
+    padding: 0;
+}
+
+
+/* varibales globales */
+:root {
+    --color-accent: #E6A622;
+    --blanco: #FFF;
+    --negro: #202020;
+    --marron: peru;
+    --verde: lime;
+    --rosa: pink;
+    --gris-ligth: #f7f7f7;
+    --gris-medium: #6f777b;
+    --gris-dark: #333;
+}
+
+/*
+@font-face {
+    font-family: Roboto;
+    src: url("https://i.annihil.us/u/prod/marvel/font/roboto/Roboto-Regular.ttf") format("truetype")
+}
+*/
+
+
+/* estilos a todas las etiquetas */
+
+body {
+    color: var(--negro);
+    font-size: 1rem; /* 16px */
+    line-height: 1.3rem;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1rem 0;
+}
+
+
+h1 {   
+    /*text-align: center;
+    margin: 1.5rem 0;*/
+    color: var(--negro);
+}
+
+h2 {
+    margin: 2rem 0 1.5rem 0;
+}
+
+div.container {
+    display: flex;
+    justify-content: center; 
+}
+
+p {
+    margin: 1rem 0;
+}
+
+a {
+    text-decoration: none; /* quitar rayita de abajo al los enlaces */
+    cursor: pointer;  /* cambiar icono de flecha a mano */
+}
+
+li {
+    list-style: none;
+}
+
+
+main, .container {
+    max-width: 1024px;
+    box-sizing: border-box;  /* si tenemos padding o border lo descuenta del hancho, no los suma */
+    margin: auto; /* centrar el contenido en horizontal */
+}
+
+header {
+    background-color: var(--negro);
+    padding: 0.25rem;
+}
+
+
+main {
+    background-color: var(--gris-ligth); 
+    padding: 1rem;
+}
+
+footer {
+    background-color: var(--gris-ligth);
+    color: var(--gris-medium);
+    border-top: 1px solid var(--gris-medium);
+    padding: 1rem;   
+  
+}
+
+footer .container {
+    display: flex;
+
+}
+
+footer a {
+    color: var(--gris-medium);
+}
+
+
+footer section {
+    width: 100%;
+}
+
+nav#header {
+    background-color: var(--color-primary);
+    color: var(--blanco);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+}
+
+nav#header a { 
+    color: #FFF; 
+}
+
+nav#header ul {
+
+    /* posicionar los LIs en horizontal y dividir el spacio */
+    display: flex;
+    justify-content: space-between;
+}    
+
+nav#header ul li {
+    list-style: none; /* quitar puntito */    
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}   
+
+nav#header ul li:hover {
+    background-color: var(--color-accent);
+}    
+
+.logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.imagen-flotante {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 20px;
+}
+
+img {
+    widows: 100%;
+    height:auto;
+}
+
+#Logo{
+    margin-right:auto;
+    align-self:center;
+    }
+
+#btn_top {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: blue;
+        -webkit-box-shadow: -4px 5px 9px 1px rgba(0, 0, 0, 0.49);
+        -moz-box-shadow: -4px 5px 9px 1px rgba(0, 0, 0, 0.49);
+        box-shadow: -4px 5px 9px 1px rgba(0, 0, 0, 0.49);
+    }
+
+#btn_top:hover {
+        transition: 1s;
+        background-color: #d66718;
+        -webkit-box-shadow: 1px 1px 17px 8px rgba(0, 0, 0, 0.49);
+        -moz-box-shadow: 1px 1px 17px 8px rgba(0, 0, 0, 0.49);
+        box-shadow: 1px 1px 17px 8px rgba(0, 0, 0, 0.49);
+    }
+
+#btn_top a {
+        color: #FFF;
+        font-size: 4rem;
+        font-weight: 100;
+        text-decoration: none;
+        padding-left: 11px;
+        font-family: Arial;
+    }

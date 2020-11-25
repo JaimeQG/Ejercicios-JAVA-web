@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.elemento {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    border: 1px rgb(174, 174, 247) solid;
+    background-color: rgb(174, 174, 247);
+    margin: 30px;
+    padding: 10px;
+}
+
+.titulo {
+    font-size: 40px;
+    font-family: fantasy;
+}
+
+.descripcion {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

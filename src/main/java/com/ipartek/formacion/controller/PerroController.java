@@ -46,7 +46,7 @@ public class PerroController extends HttpServlet {
 
 		// Los DATOS (atributos) a enviar a la vista
 		// request.setAttribute( String, Objeto)
-		// String se puede poner cualquier nombre, ppero ese mismo nombre lo usaremos en
+		// String se puede poner cualquier nombre, pero ese mismo nombre lo usaremos en
 		// la JSP para acceder al Objeto
 		// Objeto se puede enviar lo que querais: String, boolean, Perro,
 		// ArrayList<Perro>, ...
