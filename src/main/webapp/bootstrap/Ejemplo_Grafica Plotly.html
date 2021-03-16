@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Prueba</title>
+    <!-- Load plotly.js into the DOM -->
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+
+</head>
+
+<body>
+    <div id='myDiv'>
+        <!-- Plotly chart will be drawn inside this DIV -->
+    </div>
+
+    <script>
+        var data = [
+            {
+                x: ['giraffes', 'orangutans', 'monkeys', 'mio'],
+                y: [<c: forEach items="${datos}" item="dato">${dato},</c: forEach >],
+                type: 'bar'
+            }
+        ];
+
+        Plotly.newPlot('myDiv', data);
+    </script>
+</body>
+
+</html>
